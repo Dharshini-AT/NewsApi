@@ -9,8 +9,9 @@ const News=({category})=>{
     {
         //fetch API url
         
-        fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=b793d0bc3d8245d38bebed04312fd2ed`)
-        .then(res=>res.json())
+       fetch(
+  `https://newsapi.org/v2/top-headlines?country=us&category=${category}&pageSize=30&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+)
         .then(data=>{
             setArticles(data.articles||[])
         });
